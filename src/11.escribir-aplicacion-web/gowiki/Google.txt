@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mockup - Google (Maquetado)</title>
+  <style>
+    /* Reset sencillo */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: #fff;
+      color: #202124;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+
+    /* Contenedor central */
+    .main{
+      flex:1 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .center-box{
+      width:100%;
+      max-width:760px;
+      text-align:center;
+    }
+
+    /* Logo simple con colores parecidos a Google */
+    .logo{
+      font-weight:700;
+      font-size:96px;
+      letter-spacing: -4px;
+      margin-bottom:24px;
+      line-height:1;
+      display:inline-block;
+    }
+    .logo span{display:inline-block}
+    .g-blue{color:#1a73e8}
+    .g-red{color:#ea4335}
+    .g-yellow{color:#fbbc05}
+    .g-green{color:#34a853}
+
+    /* Barra de búsqueda */
+    .search-wrapper{
+      display:flex;
+      align-items:center;
+      border:1px solid #dfe1e5;
+      box-shadow: 0 1px 6px rgba(32,33,36,.28);
+      border-radius:24px;
+      padding:10px 14px;
+      background:#fff;
+      transition:box-shadow .18s ease, border-color .18s ease;
+    }
+    .search-wrapper:focus-within{
+      border-color:#c6dafc;
+      box-shadow:0 4px 18px rgba(66,133,244,.2);
+    }
+    .search-icon{
+      width:24px;height:24px;margin-right:12px;flex:0 0 24px;opacity:.6
+    }
+    .search-input{
+      flex:1 1 auto;
+      border:0;background:transparent;font-size:18px;outline:none;
+    }
+    .mic{
+      width:20px;height:20px;margin-left:12px;flex:0 0 20px;opacity:.8;cursor:pointer
+    }
+
+    /* Botones */
+    .actions{
+      margin-top:20px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap
+    }
+    .btn{
+      padding:10px 16px;border-radius:4px;border:1px solid #f0f0f0;background:#f8f9fa;color:#3c4043;font-size:14px;cursor:pointer
+    }
+    .btn:active{transform:translateY(1px)}
+
+    /* Enlaces superiores (simulan la cabecera) */
+    .header{
+      display:flex;justify-content:flex-end;padding:12px 24px;gap:12px;align-items:center
+    }
+    .header a{color:#1a73e8;text-decoration:none;font-size:14px}
+
+    /* Pie de página simple */
+    footer{
+      border-top:1px solid #e4e4e4;padding:14px 24px;background:#fff;flex-shrink:0
+    }
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .left-links,.right-links{display:flex;gap:16px;flex-wrap:wrap}
+    .left-links a,.right-links a{color:#5f6368;text-decoration:none;font-size:13px}
+
+    /* Responsive */
+    @media (max-width:520px){
+      .logo{font-size:56px}
+      .search-input{font-size:16px}
+      .btn{font-size:13px;padding:8px 12px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabecera simulada -->
+  <div class="header">
+    <a href="#">Gmail</a>
+    <a href="#">Imágenes</a>
+    <a href="#" title="Menú">▦</a>
+    <a href="#" style="padding:6px 10px;border-radius:18px;background:#1a73e8;color:#fff;text-decoration:none">Iniciar sesión</a>
+  </div>
+
+  <main class="main">
+    <div class="center-box">
+      <!-- Logo estilizado con spans para colores -->
+      <h1 class="logo" aria-label="Google mockup">
+        <span class="g-blue">G</span>
+        <span class="g-red">o</span>
+        <span class="g-yellow">o</span>
+        <span class="g-blue">g</span>
+        <span class="g-green">l</span>
+        <span class="g-red">e</span>
+      </h1>
+
+      <!-- Caja de búsqueda -->
+      <form class="search-form" onsubmit="onSearch(event)">
+        <div class="search-wrapper" role="search">
+          <!-- icono de lupa (svg) -->
+          <svg class="search-icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM10 14a4 4 0 110-8 4 4 0 010 8z" fill="#5f6368"></path>
+          </svg>
+
+          <input class="search-input" type="search" name="q" placeholder="Buscar en Google o escribir URL" aria-label="Buscar" autocomplete="off" />
+
+          <!-- micrÃ³fono (svg simple) -->
+          <svg class="mic" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="M12 14a3 3 0 003-3V6a3 3 0 10-6 0v5a3 3 0 003 3zM19 11a1 1 0 10-2 0 5 5 0 01-5 5 5 5 0 01-5-5 1 1 0 10-2 0 7 7 0 006 6.92V21a1 1 0 102 0v-3.08A7 7 0 0019 11z" fill="#ea4335"></path>
+          </svg>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Buscar con Google</button>
+          <button type="button" class="btn" onclick="lucky()">Voy a tener suerte</button>
+        </div>
+      </form>
+
+      <!-- Texto de ayuda / ejemplos -->
+      <p style="margin-top:18px;color:#6f6f6f;font-size:13px">Ej.: "clima Bogotá", "Cómo programar en Java"</p>
+    </div>
+  </main>
+
+  <!-- Pie de página simplificado -->
+  <footer>
+    <div class="footer-inner">
+      <div class="left-links">
+        <a href="#">Colombia</a>
+        <a href="#">Publicidad</a>
+        <a href="#">Negocios</a>
+      </div>
+      <div class="right-links">
+        <a href="#">Privacidad</a>
+        <a href="#">Condiciones</a>
+        <a href="#">Preferencias</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function onSearch(e){
+      e.preventDefault();
+      const q = (e.target.q && e.target.q.value) || document.querySelector('.search-input').value;
+      if(!q.trim()) return;
+      // En este mockup simulamos la búsqueda redirigiendo a Google real.
+      window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(q);
+    }
+    function lucky(){
+      // Simulación ligera de "Voy a tener suerte" redirigiendo a la página principal de Google.
+      window.location.href = 'https://www.google.com/doodles';
+    }
+  </script>
+</body>
+</html>
